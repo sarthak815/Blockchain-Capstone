@@ -26,6 +26,16 @@ type TxInput struct {
 	Sig string
 }
 
+func (block *Transaction) Serialize() []byte {
+	var res bytes.Buffer
+	encoder := gob.NewEncoder(&res)
+	err := encoder.Encode(block)
+	if err != nil {
+		log.Panicln(err)
+	}
+	return res.Bytes()
+}
+
 func (tx *Transaction) SetID() {
 	var encoded bytes.Buffer
 	var hash [32]byte
@@ -52,7 +62,7 @@ func CoinbaseTx(to, data string) *Transaction {
 	return &tx
 }
 
-func NewTransaction(from, to string, amount int, chain *BlockChain) *Transaction {
+func NewTransaction(from, to string, amount int, chain *UTXOSet) *Transaction {
 	var inputs []TxInput
 	var outputs []TxOutput
 
