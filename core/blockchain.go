@@ -141,6 +141,7 @@ func (iter *BlockChainIterator) Next() *Block {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //func (chain *BlockChain) FindSpendableOutputs(address string, amount int) (int, map[string][]int) {
 //	unspentOuts := make(map[string][]int)
 //	unspentTxs := chain.FindUnspentTransactions(address)
@@ -257,6 +258,8 @@ func ContinueBlockChain(address string) *BlockChain {
 //	return UTXOs
 //}
 
+=======
+>>>>>>> parent of 5faa27f (Transaction Implemented)
 =======
 >>>>>>> parent of 5faa27f (Transaction Implemented)
 func Handle(err error) {
